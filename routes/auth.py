@@ -24,7 +24,7 @@ def login():
         if currentUser:
             if bcrypt.check_password_hash(currentUser.password, password):
                 login_user(currentUser)
-                return redirect(url_for("orders.home"))##
+                return redirect(url_for("orders.home"))
     return render_template("login.html", form=form)
 
 
