@@ -16,3 +16,5 @@ login_manager.init_app(app)
 Migrate(app, db)
 
 app.register_blueprint(auth)
+app.register_blueprint(orders)
+app.register_blueprint(orderDetails)
