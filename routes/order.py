@@ -37,3 +37,12 @@ def finalize(id):
     db.session.add(currentOrder)
     db.session.commit()
     return redirect(url_for("orders.home"))
+
+@orders.route("/delete/<int:buyer>/<int:id>")
+@login_required
+def delete(buyer, id):
+    if current_order.id == id:
+        currentorder = Task.query.filter_by(id=id).first()
+        db.session.delete(currentorder)
+        db.session.commit()
+    return redirect(url_for("orders.home", id=id))
